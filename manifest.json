@@ -1,0 +1,34 @@
+{
+    "manifest_version": 2,
+    "name": "LeetCode-GitHub Extension",
+    "version": "1.0",
+    "description": "Automatically push LeetCode solutions to GitHub repository.",
+    "permissions": [
+      "identity",
+      "https://api.github.com/"
+    ],
+    "background": {
+      "scripts": ["background.js"],
+      "persistent": false
+    },
+    "content_scripts": [
+      {
+        "matches": ["https://leetcode.com/problems/*"],
+        "js": ["content.js"]
+      }
+    ],
+    "oauth2": {
+      "client_id": "YOUR_GITHUB_CLIENT_ID",
+      "scopes": [
+        "gist"
+      ]
+    },
+    "icons": {
+      "48": "icon-48.png",
+      "128": "icon-128.png"
+    },
+    "browser_action": {
+      "default_icon": "icon-48.png",
+      "default_title": "LeetCode-GitHub"
+    }
+  }
